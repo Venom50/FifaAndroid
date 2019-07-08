@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".Fragments.ListOfOptions">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <Button
+                android:text="List of players"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:id="@+id/listOfPlayersButton" android:layout_marginTop="30dp"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="45dp"/>
+        <Button
+                android:text="Load players"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:id="@+id/loadPlayersButton" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/listOfPlayersButton" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="45dp"/>
+        <Button
+                android:text="Exit"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:id="@+id/exitButton" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/loadPlayersButton" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="45dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
