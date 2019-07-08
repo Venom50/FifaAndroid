@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 
 import com.example.fifa.R
 import kotlinx.android.synthetic.main.fragment_list_of_options.view.*
@@ -25,7 +26,7 @@ class ListOfOptions : Fragment() {
         }
 
         view.loadPlayersButton.setOnClickListener {
-
+            Navigation.findNavController(view).navigate(R.id.action_listOfOptions_to_loadPlayersList)
         }
 
         view.exitButton.setOnClickListener {
