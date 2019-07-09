@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.fifa.Models.User
 
+var arrayOfPlayers = ArrayList<String>()
+
 class MainActivity : AppCompatActivity() {
 
     var userArrayList = ArrayList<User>()
