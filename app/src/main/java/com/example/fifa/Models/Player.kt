@@ -1,7 +1,5 @@
 package com.example.fifa.Models
 
-import java.util.*
-
 data class Player (
     val id: Int? = null,
     val name: String? = null,

@@ -3,10 +3,12 @@ package com.example.fifa.Adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fifa.Models.Player
 import com.example.fifa.R
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.player_item.view.*
 import org.w3c.dom.Text
 
@@ -24,6 +26,7 @@ class PlayerAdapter(private val players: ArrayList<Player>) : RecyclerView.Adapt
         holder.playerNameView.text = player.name
         holder.playerNationalityView.text = player.nationality
         holder.playerAgeView.text = player.age.toString()
+        Picasso.get().load(player.photo).resize(100, 100).into(holder.playerImageView)
     }
 
     class PlayerViewHolder(container: View) : RecyclerView.ViewHolder(container) {
@@ -31,5 +34,6 @@ class PlayerAdapter(private val players: ArrayList<Player>) : RecyclerView.Adapt
         val playerNameView: TextView = container.name
         val playerNationalityView: TextView = container.nationality
         val playerAgeView: TextView = container.age
+        val playerImageView: ImageView = container.photoImageView
     }
 }
