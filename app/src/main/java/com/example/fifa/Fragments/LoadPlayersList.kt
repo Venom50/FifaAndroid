@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fifa.Adapters.PlayerAdapter
 import com.example.fifa.Helper.SimpleMoneyFormatter
@@ -27,7 +28,11 @@ class LoadPlayersList : Fragment() {
         var listOfPlayers = ArrayList(arrayOfPlayers.map { PlayerMapper(SimpleMoneyFormatter()).map(it) })
 
         val recyclerView = view.recyclerView
-        recyclerView.adapter = PlayerAdapter(listOfPlayers)
+        recyclerView.adapter = PlayerAdapter(listOfPlayers, object: PlayerAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                Toast.makeText(context, "Posistion $position", Toast.LENGTH_SHORT).show()
+            }
+        })
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         return view
