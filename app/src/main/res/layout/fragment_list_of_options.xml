@@ -9,7 +9,7 @@
             android:layout_height="match_parent">
 
         <Button
-                android:text="List of players"
+                android:text="load players"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:id="@+id/listOfPlayersButton" android:layout_marginTop="30dp"
@@ -17,7 +17,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="45dp"/>
         <Button
-                android:text="Load players"
+                android:text="list of players"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
                 android:id="@+id/loadPlayersButton" android:layout_marginTop="8dp"
