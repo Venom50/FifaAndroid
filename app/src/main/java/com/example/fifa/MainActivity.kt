@@ -2,6 +2,7 @@ package com.example.fifa
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.fifa.Models.Player
 import com.example.fifa.Models.User
 
 var arrayOfPlayers = ArrayList<String>()

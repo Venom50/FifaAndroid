@@ -7,10 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.example.fifa.Controllers.WordListAdapter
-import com.example.fifa.MainActivity
+import com.example.fifa.Adapters.PlayerAdapter
+import com.example.fifa.Helper.SimpleMoneyFormatter
+import com.example.fifa.Mappers.PlayerMapper
+import com.example.fifa.Models.Player
 
 import com.example.fifa.R
 import com.example.fifa.arrayOfPlayers
@@ -18,35 +18,18 @@ import kotlinx.android.synthetic.main.fragment_load_players_list.view.*
 
 class LoadPlayersList : Fragment() {
 
-    lateinit var recyclerView: RecyclerView
-    lateinit var viewAdapter: WordListAdapter
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_load_players_list, container, false)
+        var listOfPlayers = ArrayList(arrayOfPlayers.map { PlayerMapper(SimpleMoneyFormatter()).map(it) })
 
-
-
-//        recyclerView = view.recyclerView
-//        viewAdapter = WordListAdapter((activity as MainActivity).baseContext, arrayOfPlayers)
-//
-//        recyclerView.adapter = viewAdapter
-//
-//        recyclerView.layoutManager = LinearLayoutManager((activity as MainActivity).baseContext)
+        val recyclerView = view.recyclerView
+        recyclerView.adapter = PlayerAdapter(listOfPlayers)
+        recyclerView.layoutManager = LinearLayoutManager(context)
 
         return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-//        recyclerView = view.recyclerView
-//        recyclerView.apply {
-//            layoutManager = LinearLayoutManager(activity)
-//            adapter = ListAdapter(arrayOfPlayers)
-//        }
     }
 }
