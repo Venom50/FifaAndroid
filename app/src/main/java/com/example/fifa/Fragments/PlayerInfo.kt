@@ -25,6 +25,12 @@ class PlayerInfo : Fragment() {
     lateinit var positionTextView: TextView
     lateinit var clubLogoImageView: ImageView
     lateinit var flagImageView: ImageView
+    lateinit var preferredFootTextView: TextView
+    lateinit var weakFootTextView: TextView
+    lateinit var skillMovesTextView: TextView
+    lateinit var numberTextView: TextView
+    lateinit var weightTextView: TextView
+    lateinit var heightTextView: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +47,12 @@ class PlayerInfo : Fragment() {
         positionTextView = view.positionTextView
         clubLogoImageView = view.clubLogoImageView
         flagImageView = view.flagImageView
+        preferredFootTextView = view.preferredFootTextView
+        weakFootTextView = view.weakFootTextView
+        skillMovesTextView = view.skillMovesTextView
+        numberTextView = view.numberTextView
+        weightTextView = view.weightTextView
+        heightTextView = view.heightTextView
 
         nameTextView.text = player.name
         idTextView.text = player.id.toString()
@@ -49,6 +61,12 @@ class PlayerInfo : Fragment() {
         positionTextView.text = player.position
         Picasso.get().load(player.clubLogo).resize(60, 60).into(clubLogoImageView)
         Picasso.get().load(player.flag).resize(60, 40).into(flagImageView)
+        preferredFootTextView.text = player.preferredFoot
+        weakFootTextView.text = player.weakFoot.toString()
+        skillMovesTextView.text = player.skillMoves.toString()
+        numberTextView.text = player.jerseyNumber.toString()
+        weightTextView.text = player.weight
+        heightTextView.text = player.height
 
         return view
     }

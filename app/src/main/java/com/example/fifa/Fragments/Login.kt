@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.fifa.MainActivity
+import com.example.fifa.Models.User
 import com.example.fifa.R
 import kotlinx.android.synthetic.main.fragment_login.view.*
 
@@ -25,6 +26,16 @@ class Login : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
+        val act = activity as MainActivity
+
+        act.userArrayList.add(
+            User(
+                login = "admin",
+                password = "admin",
+                email = "admin@admin.com"
+            )
+        )
+
         view.registerButton.setOnClickListener {
 
             Navigation.findNavController(view).navigate(R.id.action_login_to_register)
@@ -34,8 +45,6 @@ class Login : Fragment() {
 
             loginEditText = view.loginEditText
             passwordEditText = view.passwordEditText
-
-            val act = activity as MainActivity
 
             if(act.userArrayList.any {
                     it.login == loginEditText.text.toString() && it.password == passwordEditText.text.toString()
