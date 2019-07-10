@@ -16,5 +16,9 @@
         <action android:id="@+id/action_listOfOptions_to_loadPlayersList" app:destination="@id/loadPlayersList"/>
     </fragment>
     <fragment android:id="@+id/loadPlayersList" android:name="com.example.fifa.Fragments.LoadPlayersList"
-              android:label="fragment_load_players_list" tools:layout="@layout/fragment_load_players_list"/>
+              android:label="fragment_load_players_list" tools:layout="@layout/fragment_load_players_list">
+        <action android:id="@+id/action_loadPlayersList_to_playerInfo" app:destination="@id/playerInfo"/>
+    </fragment>
+    <fragment android:id="@+id/playerInfo" android:name="com.example.fifa.Fragments.PlayerInfo"
+              android:label="fragment_player_info" tools:layout="@layout/fragment_player_info"/>
 </navigation>

@@ -1,5 +1,7 @@
 package com.example.fifa.Models
 
+import java.io.Serializable
+
 data class Player (
     val id: Int? = null,
     val name: String? = null,
@@ -28,4 +30,4 @@ data class Player (
     val contractValidUntil: String? = null,
     val height: String? = null,
     val weight: String? = null
-)
+) : Serializable
