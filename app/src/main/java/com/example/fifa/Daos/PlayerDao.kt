@@ -17,4 +17,7 @@ interface PlayerDao {
 
     @Query("DELETE FROM players")
     fun deleteAllPlayers()
+
+    @Query("SELECT * FROM players WHERE id == :id")
+    fun getPlayerById(id: Int): PlayerEntity
 }

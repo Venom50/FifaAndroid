@@ -41,7 +41,7 @@ class LoadPlayersList : Fragment() {
 
         recyclerView.adapter = PlayerAdapter(listOfPlayers, object: PlayerAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
-                bundle!!.putSerializable("player", listOfPlayers[position])
+                bundle!!.putInt("playerId", listOfPlayers[position].id!!)
 
                 Navigation.findNavController(view).navigate(R.id.action_loadPlayersList_to_playerInfo, bundle)
             }
