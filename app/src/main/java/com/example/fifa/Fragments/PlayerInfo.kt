@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.fifa.Entities.PlayerEntity
 import com.example.fifa.Models.Player
 
 import com.example.fifa.R
@@ -38,7 +39,7 @@ class PlayerInfo : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_player_info, container, false)
 
-        var player: Player = arguments!!.get("player") as Player
+        var player: PlayerEntity = arguments!!.get("player") as PlayerEntity
 
         nameTextView = view.nameTextView
         idTextView = view.idTextView

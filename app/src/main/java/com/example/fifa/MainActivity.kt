@@ -24,6 +24,6 @@ class MainActivity : AppCompatActivity() {
         mDbWorkerThread.start()
 
         db = PlayerAndUserDatabase.getDatabase(this)
-        mDbWorkerThread.postTask(Runnable { db!!.PlayerDao().insertPlayers(PlayerEntity()) })
+        //mDbWorkerThread.postTask(Runnable { db!!.PlayerDao().insertPlayers(PlayerEntity()) })
     }
 }

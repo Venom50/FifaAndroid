@@ -10,10 +10,10 @@ import com.example.fifa.Models.Player
 @Dao
 interface PlayerDao {
     @Query("SELECT * FROM players")
-    fun getAllPlayers(): List<PlayerEntity>
+    fun getAllPlayers(): Array<PlayerEntity>
 
     @Insert(onConflict = REPLACE)
-    fun insertPlayers(player: PlayerEntity)
+    fun insertPlayers(vararg player: PlayerEntity)
 
     @Query("DELETE FROM players")
     fun deleteAllPlayers()

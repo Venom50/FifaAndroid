@@ -12,13 +12,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.fifa.Database.PlayerAndUserDatabase
+import com.example.fifa.Entities.PlayerEntity
 import com.example.fifa.Helper.FifaFileReader
+import com.example.fifa.Helper.SimpleMoneyFormatter
+import com.example.fifa.Mappers.PlayerMapper
+import com.example.fifa.Mappers.PlayerToEntety
 import com.example.fifa.Models.Player
 
 import com.example.fifa.R
 import com.example.fifa.arrayOfPlayers
 import com.example.fifa.db
+import com.example.fifa.mDbWorkerThread
 import kotlinx.android.synthetic.main.fragment_list_of_options.view.*
+import java.lang.Exception
 
 class ListOfOptions : Fragment() {
 
@@ -33,8 +39,6 @@ class ListOfOptions : Fragment() {
         view.listOfPlayersButton.setOnClickListener {
 
             pickFile()
-
-            Toast.makeText(this.context, "Database loaded", Toast.LENGTH_SHORT).show()
         }
 
         view.loadPlayersButton.setOnClickListener {
@@ -75,6 +79,15 @@ class ListOfOptions : Fragment() {
             data?.let { intent ->
                 arrayOfPlayers = FifaFileReader.read(context!!.contentResolver, intent!!.data!!)
             }
+            try {
+                var playerList = ArrayList(arrayOfPlayers.map {
+                    PlayerToEntety().playerToEntetyMapper(
+                        PlayerMapper(SimpleMoneyFormatter()).map(it)
+                    )
+                })
+                mDbWorkerThread.postTask(Runnable { db!!.PlayerDao().insertPlayers(*playerList.toTypedArray()) })
+            } catch (e: Exception) {}
+            Toast.makeText(this.context, "Database loaded", Toast.LENGTH_SHORT).show()
         }
     }
 }

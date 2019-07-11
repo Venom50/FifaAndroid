@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fifa.Entities.PlayerEntity
 import com.example.fifa.Models.Player
 import com.example.fifa.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.player_item.view.*
 import org.w3c.dom.Text
 
-class PlayerAdapter(private val players: ArrayList<Player>, private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder>() {
+class PlayerAdapter(private val players: Array<PlayerEntity>, private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<PlayerAdapter.PlayerViewHolder>() {
 
     interface OnItemClickListener{
         fun onItemClick(position: Int)

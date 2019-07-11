@@ -10,12 +10,16 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fifa.Adapters.PlayerAdapter
+import com.example.fifa.Database.PlayerAndUserDatabase
+import com.example.fifa.Entities.PlayerEntity
 import com.example.fifa.Helper.SimpleMoneyFormatter
 import com.example.fifa.Mappers.PlayerMapper
 import com.example.fifa.Models.Player
 
 import com.example.fifa.R
 import com.example.fifa.arrayOfPlayers
+import com.example.fifa.db
+import com.example.fifa.mDbWorkerThread
 import kotlinx.android.synthetic.main.fragment_load_players_list.view.*
 
 class LoadPlayersList : Fragment() {
@@ -25,9 +29,11 @@ class LoadPlayersList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val arr = arrayOfPlayers
         val view = inflater.inflate(R.layout.fragment_load_players_list, container, false)
-        var listOfPlayers = ArrayList(arrayOfPlayers.map { PlayerMapper(SimpleMoneyFormatter()).map(it) })
+        //var listOfPlayers = ArrayList(arrayOfPlayers.map { PlayerMapper(SimpleMoneyFormatter()).map(it) })
+
+        val myDb = PlayerAndUserDatabase.getDatabase(context!!.applicationContext)
+        val listOfPlayers = myDb!!.PlayerDao().getAllPlayers()
 
         val recyclerView = view.recyclerView
 
