@@ -1,9 +1,8 @@
-package com.example.fifa.Models
+package com.example.fifa.Entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
 
 @Entity(tableName = "players")
 data class Player (
@@ -62,4 +61,4 @@ data class Player (
     val height: String? = null,
     @ColumnInfo(name = "weight")
     val weight: String? = null
-) : Serializable
+)

@@ -11,10 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
+import com.example.fifa.Database.PlayerAndUserDatabase
 import com.example.fifa.Helper.FifaFileReader
+import com.example.fifa.Models.Player
 
 import com.example.fifa.R
 import com.example.fifa.arrayOfPlayers
+import com.example.fifa.db
 import kotlinx.android.synthetic.main.fragment_list_of_options.view.*
 
 class ListOfOptions : Fragment() {

@@ -2,6 +2,8 @@ package com.example.fifa.Mappers
 
 import com.example.fifa.Helper.IMoneyFormatter
 import com.example.fifa.Models.Player
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PlayerMapper(private val moneyFormatter: IMoneyFormatter) {
     fun map(line: String): Player {
@@ -29,11 +31,19 @@ class PlayerMapper(private val moneyFormatter: IMoneyFormatter) {
             realFace = items[20].toBoolean(),
             position = items[21],
             jerseyNumber = items[22].toIntOrNull(),
-            joined = items[23],
+            joined = dateParser(items[23])?.time,
             loanedFrom = items[24],
             contractValidUntil = items[25],
             height = items[26],
             weight = items[27]
         )
+    }
+
+    fun dateParser(dateString: String): Date? {
+        if (dateString.isEmpty()) {
+            return null
+        } else {
+            return SimpleDateFormat("MMM dd, yyyy", Locale.ENGLISH).parse(dateString)
+        }
     }
 }
