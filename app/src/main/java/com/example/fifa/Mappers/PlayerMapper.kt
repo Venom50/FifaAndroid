@@ -31,7 +31,7 @@ class PlayerMapper(private val moneyFormatter: IMoneyFormatter) {
             realFace = items[20].toBoolean(),
             position = items[21],
             jerseyNumber = items[22].toIntOrNull(),
-            joined = dateParser(items[23])?.time,
+            joined = dateParser(items[23]),
             loanedFrom = items[24],
             contractValidUntil = items[25],
             height = items[26],

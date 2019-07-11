@@ -25,6 +25,7 @@ class LoadPlayersList : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val arr = arrayOfPlayers
         val view = inflater.inflate(R.layout.fragment_load_players_list, container, false)
         var listOfPlayers = ArrayList(arrayOfPlayers.map { PlayerMapper(SimpleMoneyFormatter()).map(it) })
 
