@@ -66,4 +66,15 @@ dependencies {
 //    implementation 'android.arch.persistence.room:runtime:1.1.1'
 //    implementation 'android.arch.persistence.room:rxjava2:1.1.1'
 
+    //Koin for Android
+    implementation 'org.koin:koin-android:2.0.1'
+
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01'
+    def lifecycle_version = "2.0.0"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    // alternatively - just ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+
 }

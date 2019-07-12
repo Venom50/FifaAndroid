@@ -83,6 +83,7 @@ class ListOfOptions : Fragment() {
                     )
                 })
                 mDbWorkerThread.postTask(Runnable { db!!.PlayerDao().insertPlayers(*playerList.toTypedArray()) })
+
             } catch (e: Exception) {}
             Toast.makeText(this.context, "Database loaded", Toast.LENGTH_SHORT).show()
         }

@@ -1,5 +1,6 @@
 package com.example.fifa.Daos
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import androidx.room.OnConflictStrategy.REPLACE
 import com.example.fifa.Entities.PlayerEntity
@@ -7,7 +8,7 @@ import com.example.fifa.Entities.PlayerEntity
 @Dao
 interface PlayerDao {
     @Query("SELECT * FROM players")
-    fun getAllPlayers(): Array<PlayerEntity>
+    fun getAllPlayers(): LiveData<Array<PlayerEntity>>
 
     @Insert(onConflict = REPLACE)
     fun insertPlayers(vararg player: PlayerEntity)
