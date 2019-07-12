@@ -11,13 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
-import com.example.fifa.Database.PlayerAndUserDatabase
-import com.example.fifa.Entities.PlayerEntity
 import com.example.fifa.Helper.FifaFileReader
 import com.example.fifa.Helper.SimpleMoneyFormatter
 import com.example.fifa.Mappers.PlayerMapper
-import com.example.fifa.Mappers.PlayerToEntety
-import com.example.fifa.Models.Player
+import com.example.fifa.Mappers.PlayerToEntity
 
 import com.example.fifa.R
 import com.example.fifa.arrayOfPlayers
@@ -81,7 +78,7 @@ class ListOfOptions : Fragment() {
             }
             try {
                 var playerList = ArrayList(arrayOfPlayers.map {
-                    PlayerToEntety().playerToEntetyMapper(
+                    PlayerToEntity().playerToEntityMapper(
                         PlayerMapper(SimpleMoneyFormatter()).map(it)
                     )
                 })

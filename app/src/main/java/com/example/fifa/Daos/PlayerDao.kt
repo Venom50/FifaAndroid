@@ -1,11 +1,8 @@
 package com.example.fifa.Daos
 
-import android.widget.ArrayAdapter
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import androidx.room.OnConflictStrategy.REPLACE
 import com.example.fifa.Entities.PlayerEntity
-import com.example.fifa.Models.Player
 
 @Dao
 interface PlayerDao {

@@ -3,8 +3,8 @@ package com.example.fifa.Mappers
 import com.example.fifa.Entities.PlayerEntity
 import com.example.fifa.Models.Player
 
-class PlayerToEntety {
-    fun playerToEntetyMapper(player: Player): PlayerEntity {
+class PlayerToEntity {
+    fun playerToEntityMapper(player: Player): PlayerEntity {
         return PlayerEntity(
             player.id,
             player.name,
