@@ -12,4 +12,9 @@ class Repository(private val playerDao: PlayerDao) {
     suspend fun insert(player: PlayerEntity) {
         playerDao.insertPlayers(player)
     }
+
+    @WorkerThread
+    suspend fun insertAll(playersList: ArrayList<PlayerEntity>) {
+        playerDao.insertPlayers(*playersList.toTypedArray())
+    }
 }

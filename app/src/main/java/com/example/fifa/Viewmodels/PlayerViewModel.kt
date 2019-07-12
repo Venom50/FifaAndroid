@@ -24,4 +24,8 @@ class PlayerViewModel(application: Application) : ViewModel() {
     fun insert(player: PlayerEntity) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(player)
     }
+
+    fun insertAll(playersList: ArrayList<PlayerEntity>) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insertAll(playersList)
+    }
 }

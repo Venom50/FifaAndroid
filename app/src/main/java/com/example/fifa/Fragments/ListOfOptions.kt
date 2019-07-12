@@ -17,15 +17,18 @@ import com.example.fifa.Mappers.PlayerMapper
 import com.example.fifa.Mappers.PlayerToEntity
 
 import com.example.fifa.R
+import com.example.fifa.Viewmodels.PlayerViewModel
 import com.example.fifa.arrayOfPlayers
 import com.example.fifa.db
 import com.example.fifa.mDbWorkerThread
 import kotlinx.android.synthetic.main.fragment_list_of_options.view.*
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.lang.Exception
 
 class ListOfOptions : Fragment() {
 
     private val fileRequestCode: Int = 4
+    private val playerViewModel: PlayerViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,11 +80,9 @@ class ListOfOptions : Fragment() {
                 arrayOfPlayers = FifaFileReader.read(context!!.contentResolver, intent!!.data!!)
             }
             try {
-                var playerList = ArrayList(arrayOfPlayers.map {
-                    PlayerToEntity().playerToEntityMapper(
-                        PlayerMapper(SimpleMoneyFormatter()).map(it)
-                    )
-                })
+                var playerList = ArrayList(arrayOfPlayers.map { PlayerToEntity().playerToEntityMapper(PlayerMapper(SimpleMoneyFormatter()).map(it)) })
+
+                playerViewModel.insertAll(playerList)
                 mDbWorkerThread.postTask(Runnable { db!!.PlayerDao().insertPlayers(*playerList.toTypedArray()) })
 
             } catch (e: Exception) {}

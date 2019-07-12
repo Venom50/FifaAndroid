@@ -32,6 +32,5 @@ class MainActivity : AppCompatActivity() {
         mDbWorkerThread.start()
 
         db = PlayerAndUserDatabase.getDatabase(this)
-        //playerViewModel = ViewModelProviders.of(this).get(PlayerViewModel::class.java)
     }
 }
