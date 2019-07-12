@@ -22,10 +22,12 @@ import com.example.fifa.Models.Player
 
 import com.example.fifa.Viewmodels.PlayerViewModel
 import kotlinx.android.synthetic.main.fragment_load_players_list.view.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class LoadPlayersList : Fragment() {
 
     val listOfPlayers = ArrayList<PlayerEntity>()
+    val playerViewModel: PlayerViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +46,7 @@ class LoadPlayersList : Fragment() {
         })
         recyclerView.adapter = adapterRecycler
 
-        MainActivity.playerViewModel.allPlayers.observe(this, Observer {
+        playerViewModel.allPlayers.observe(this, Observer {
             listOfPlayers.addAll(it)
             adapterRecycler.notifyDataSetChanged()
         })

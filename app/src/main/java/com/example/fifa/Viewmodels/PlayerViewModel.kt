@@ -3,6 +3,7 @@ package com.example.fifa.Viewmodels
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fifa.Database.PlayerAndUserDatabase
 import com.example.fifa.Entities.PlayerEntity
@@ -10,7 +11,7 @@ import com.example.fifa.Repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class PlayerViewModel(application: Application) : AndroidViewModel(application) {
+class PlayerViewModel(application: Application) : ViewModel() {
     private val repository: Repository
     val allPlayers: LiveData<Array<PlayerEntity>>
 
