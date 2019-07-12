@@ -77,4 +77,6 @@ dependencies {
     // alternatively - just ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
 
+    implementation 'org.koin:koin-android-viewmodel:2.0.1'
+
 }

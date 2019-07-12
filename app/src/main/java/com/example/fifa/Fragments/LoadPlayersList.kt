@@ -32,23 +32,21 @@ class LoadPlayersList : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_load_players_list, container, false)
-        //var listOfPlayers = ArrayList(arrayOfPlayers.map { PlayerMapper(SimpleMoneyFormatter()).map(it) })
-
-        //val myDb = PlayerAndUserDatabase.getDatabase(context!!.applicationContext)
-        //val listOfPlayers = myDb!!.PlayerDao().getAllPlayers()
-
         val recyclerView = view.recyclerView
-
-        MainActivity.playerViewModel.allPlayers.observe(this, Observer { listOfPlayers.addAll(it) })
-
         val bundle: Bundle? = Bundle()
 
-        recyclerView.adapter = PlayerAdapter(listOfPlayers, object: PlayerAdapter.OnItemClickListener {
+        val adapterRecycler =  PlayerAdapter(listOfPlayers, object: PlayerAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
                 bundle!!.putInt("playerId", listOfPlayers[position].id!!)
 
                 Navigation.findNavController(view).navigate(R.id.action_loadPlayersList_to_playerInfo, bundle)
             }
+        })
+        recyclerView.adapter = adapterRecycler
+
+        MainActivity.playerViewModel.allPlayers.observe(this, Observer {
+            listOfPlayers.addAll(it)
+            adapterRecycler.notifyDataSetChanged()
         })
 
         recyclerView.layoutManager = LinearLayoutManager(context)
